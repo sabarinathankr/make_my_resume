@@ -1,4 +1,4 @@
-package com.makemyresume
+package com.buildmyresume
 
 import org.junit.Test
 
