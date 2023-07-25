@@ -1,5 +1,6 @@
 package com.buildmyresume.ui.activity
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
@@ -49,7 +50,6 @@ abstract class BMRBaseActivity : AppCompatActivity(), HasComponent<ActivityCompo
     abstract fun findFragmentPlaceHolder(): Int
 
 
-
     override fun <T : BMRBaseFragment> load(tClass: Class<T>): FragmentActionPerformer<T> {
         return navigationFactory.make(tClass)
     }
@@ -80,16 +80,17 @@ abstract class BMRBaseActivity : AppCompatActivity(), HasComponent<ActivityCompo
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (navigationFactory.fragmentHandler.getFragmentStackCount()>1) {
+            if (navigationFactory.fragmentHandler.getFragmentStackCount() >= 1) {
                 popUp()
-            }else {
+            } else {
                 finish()
             }
-
-
         }
         return true
     }
-
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        recreate()
+    }
 
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Customize the box stroke color -->
+        <item name="boxStrokeColor">#FFFFFF</item>
+        <!-- Customize the box stroke color when there is no focus -->
+        <item name="boxStrokeErrorColor">#00FF00</item>
+    </style>
+
+</resources>

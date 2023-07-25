@@ -16,6 +16,8 @@ abstract class BMRBaseFragment : Fragment(), HasComponent<FragmentComponent> {
     @Inject
     lateinit var navigator: Navigator
 
+    lateinit var mContext: Context
+
     override val component: FragmentComponent
         get() {
             return getComponent(ActivityComponent::class.java).plus(FragmentModule(this))
@@ -34,6 +36,7 @@ abstract class BMRBaseFragment : Fragment(), HasComponent<FragmentComponent> {
 
     override fun onAttach(context: Context) {
         inject(component)
+        mContext = context
         super.onAttach(context)
     }
 

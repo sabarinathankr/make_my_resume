@@ -18,7 +18,7 @@ constructor(val fragmentHandler: FragmentHandler) {
         return make(FragmentFactory.getFragment(aClass))
     }
 
-    fun <T : BMRBaseFragment> make(fragment: T?): FragmentActionPerformer<T> {
+    private fun <T : BMRBaseFragment> make(fragment: T?): FragmentActionPerformer<T> {
         this.fragment = fragment
         this.tag = fragment!!.javaClass.simpleName
         return Provider(fragment, this)

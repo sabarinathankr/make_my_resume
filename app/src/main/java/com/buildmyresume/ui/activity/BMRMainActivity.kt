@@ -1,5 +1,6 @@
 package com.buildmyresume.ui.activity
 
+import android.content.res.Configuration
 import android.os.Bundle
 import com.buildmyresume.R
 import com.buildmyresume.di.activity.ActivityComponent
@@ -19,5 +20,10 @@ class BMRMainActivity : BMRBaseActivity() {
 
     override fun inject(activityComponent: ActivityComponent) {
         activityComponent.inject(this)
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        recreate()
     }
 }
