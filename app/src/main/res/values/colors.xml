@@ -4,5 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#E30101</color>
     <color name="red_1">#9A0404</color>
+    <color name="red_2">#FFB8B8</color>
+    <color name="red_3">#CC0000</color>
     <color name="skin">#fcf8f7</color>
 </resources>

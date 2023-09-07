@@ -18,6 +18,6 @@ interface PersonalDetailsDao {
     @Query("delete from personal_details_table")
     fun deleteAllPersonalDetails()
 
-    @Query("select * from personal_details_table order by id desc")
+    @Query("select * from personal_details_table")
     fun getAllPersonalDetails(): LiveData<List<PersonalDetailsModel>>
 }

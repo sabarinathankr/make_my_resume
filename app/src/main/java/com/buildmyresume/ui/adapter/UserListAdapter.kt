@@ -27,23 +27,51 @@ class UserListAdapter(val activity: Activity) :
         this.listener = listener
     }
 
-    inner class UserListViewHolder(private val binding: LayoutUserListBinding, activity: Activity) :
+    inner class UserListViewHolder(
+        private val binding: LayoutUserListBinding,
+        private val mActivity: Activity,
+    ) :
         BaseViewHolder<PersonalDetailsModel>(binding.root) {
 
         override fun bind(item: PersonalDetailsModel) {
-            UiUtil().getNonNullLayoutParams(binding.userListMainCv).width = LayoutParams.MATCH_PARENT
+            UiUtil().getNonNullLayoutParams(binding.userListMainCl).width =
+                LayoutParams.MATCH_PARENT
             itemView.background = ContextCompat.getDrawable(itemView.context, R.color.skin)
             binding.userNameTv.text = item.name
+            binding.designationTv.text = item.profession
             itemView.setOnClickListener { listener!!.onItemClick(item) }
-            setUpUiAlignment(binding, activity, item.itemId.toInt())
+            setUpUiAlignment(binding, mActivity, item.itemId.toInt(), itemCount)
         }
 
     }
 
-    fun setUpUiAlignment(binding: LayoutUserListBinding, activity: Activity, position: Int) {
+    fun setUpUiAlignment(
+        binding: LayoutUserListBinding,
+        activity: Activity,
+        position: Int,
+        itemCount: Int,
+    ) {
 
-        //
-        UiUtil().setUIAlignment(binding.userListMainCv,activity, arrayOf(20.0, 10.0, null, null, 325.0, 100.0))
+        //main constrain layout
+        UiUtil().setUIAlignment(
+            binding.userListMainCl,
+            activity,
+            arrayOf(20.0, 10.0, null, null, 325.0, 100.0)
+        )
+        if (0 == position)
+            UiUtil().setUIAlignment(
+                binding.userListMainCl,
+                activity,
+                arrayOf(40.0, 10.0, null, null, 325.0, 100.0)
+            )
+
+       if (itemCount == position){
+            UiUtil().setUIAlignment(
+                binding.userListMainCl,
+                activity,
+                arrayOf(20.0, 100.0, null, null, 325.0, 100.0)
+            )
+        }
 
     }
 

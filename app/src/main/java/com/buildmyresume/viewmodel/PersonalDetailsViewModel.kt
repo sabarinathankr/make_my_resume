@@ -9,26 +9,26 @@ import com.buildmyresume.roomdb.PersonalDetailsRepository
 class PersonalDetailsViewModel(app: Application) : AndroidViewModel(app) {
 
     private val repository = PersonalDetailsRepository(app)
-    private val allNotes = repository.getAllPersonalDetails()
+    private val allPersonalDetails = repository.getAllPersonalDetails()
 
-    fun insert(note: PersonalDetailsModel) {
-        repository.insert(note)
+    fun insert(personalDetailsModel: PersonalDetailsModel) {
+        repository.insert(personalDetailsModel)
     }
 
-    fun update(note: PersonalDetailsModel) {
-        repository.update(note)
+    fun update(personalDetailsModel: PersonalDetailsModel) {
+        repository.update(personalDetailsModel)
     }
 
-    fun delete(note: PersonalDetailsModel) {
-        repository.delete(note)
+    fun delete(personalDetailsModel: PersonalDetailsModel) {
+        repository.delete(personalDetailsModel)
     }
 
     fun deleteAllNotes() {
         repository.deleteAllPersonalDetails()
     }
 
-    fun getAllNotes(): LiveData<List<PersonalDetailsModel>> {
-        return allNotes
+    fun getAllPersonalDetails(): LiveData<List<PersonalDetailsModel>> {
+        return allPersonalDetails
     }
 
 

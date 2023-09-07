@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.buildmyresume.databinding.FragmentHomeBinding
 import com.buildmyresume.di.fragment.FragmentComponent
@@ -39,26 +38,28 @@ class HomeFragment : BMRBaseFragment(), UserListClickListener {
         super.onViewCreated(view, savedInstanceState)
         personalDetailsViewModel = ViewModelProvider(this)[PersonalDetailsViewModel::class.java]
 
-        personalDetailsViewModel.getAllNotes().observe(viewLifecycleOwner) {
+        personalDetailsViewModel.getAllPersonalDetails().observe(viewLifecycleOwner) {
             getObserveData(it)
         }
         binding.getStartTv.setOnClickListener {
-            navigator.load(GetPersonalDetailsFragment::class.java).replace(true)
+            navigator.load(FeatureDetailsFragment::class.java).replace(true)
         }
         rvUserList = UserListRecyclerView(
-                LayoutInflater.from(requireContext()),
-        binding.containerUserList,
-        requireActivity()
+            LayoutInflater.from(requireContext()),
+            binding.containerUserList,
+            requireActivity()
         )
         binding.containerUserList.addView(rvUserList.getRootView())
         rvUserList.setListener(this)
     }
 
     private fun getObserveData(notes: List<PersonalDetailsModel>) {
+        rvUserList.clear()
         rvUserList.appendItems(notes.sortedBy { data -> data.id })
     }
 
     override fun onItemClick(item: PersonalDetailsModel) {
-        Toast.makeText(mContext, item.id.toString(), Toast.LENGTH_SHORT).show()
+        navigator.load(FeatureDetailsFragment::class.java).setBundle(ViewPersonalDetailsFragment.createBundleHome(item.id!!)).replace(true)
     }
+
 }

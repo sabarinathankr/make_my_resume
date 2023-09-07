@@ -40,4 +40,8 @@ abstract class BMRBaseFragment : Fragment(), HasComponent<FragmentComponent> {
         super.onAttach(context)
     }
 
+    companion object {
+        const val DATA = "data"
+    }
+
 }

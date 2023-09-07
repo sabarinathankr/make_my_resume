@@ -28,7 +28,7 @@ class SplashFragment : BMRBaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         personalDetailsViewModel = ViewModelProvider(this)[PersonalDetailsViewModel::class.java]
 
-        personalDetailsViewModel.getAllNotes().observe(viewLifecycleOwner, Observer {
+        personalDetailsViewModel.getAllPersonalDetails().observe(viewLifecycleOwner, Observer {
 
         })
 

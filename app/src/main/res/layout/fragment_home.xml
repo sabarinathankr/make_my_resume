@@ -25,12 +25,12 @@
 
     <FrameLayout
         android:id="@+id/container_user_list"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:background="@color/red_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/get_start_tv"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/get_start_tv"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

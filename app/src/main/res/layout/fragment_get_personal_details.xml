@@ -29,6 +29,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
+                app:hintTextColor="@color/red_2"
+                app:boxStrokeColor="@color/red_2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profile_iv">
@@ -37,7 +39,8 @@
                     android:id="@+id/name_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_600" />
+                    android:fontFamily="@font/poppins_600"
+                    android:textColor="@color/red_3" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,6 +49,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/profession"
+                app:hintTextColor="@color/red_2"
+                app:boxStrokeColor="@color/red_2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name_field">
@@ -53,27 +58,26 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/profession_et"
                     android:layout_width="match_parent"
-                    android:textColor="@color/red"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_600" />
+                    android:fontFamily="@font/poppins_600"
+                    android:textColor="@color/red_3" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/save_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/red"
-                android:text="@string/save"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_700"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/profession_field"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:fontFamily="@font/poppins_700"
+        android:tag="saveBtn"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

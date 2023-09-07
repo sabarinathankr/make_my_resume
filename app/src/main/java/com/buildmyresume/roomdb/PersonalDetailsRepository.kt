@@ -6,13 +6,13 @@ import androidx.lifecycle.LiveData
 class PersonalDetailsRepository(application: Application) {
 
     private var personalDetailsDao: PersonalDetailsDao
-    private var allNotes: LiveData<List<PersonalDetailsModel>>
+    private var personalDetailList: LiveData<List<PersonalDetailsModel>>
 
-    private val database = PersonalDetailsDatabase.getInstance(application)
+    private val database = ResumeLocalDatabase.getInstance(application)
 
     init {
-        personalDetailsDao = database.noteDao()
-        allNotes = personalDetailsDao.getAllPersonalDetails()
+        personalDetailsDao = database.personalDetailsDao()
+        personalDetailList = personalDetailsDao.getAllPersonalDetails()
     }
 
     fun insert(personalDetailsModel: PersonalDetailsModel) {
@@ -40,7 +40,7 @@ class PersonalDetailsRepository(application: Application) {
     }
 
     fun getAllPersonalDetails(): LiveData<List<PersonalDetailsModel>> {
-        return allNotes
+        return personalDetailList
     }
 
 
